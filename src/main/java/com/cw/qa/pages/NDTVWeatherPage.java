@@ -23,8 +23,9 @@ public class NDTVWeatherPage extends BaseClass
 	@FindBy(id = "searchBox")
 	WebElement citySearchBox;
 	
-	@FindBy(id = "Bhubaneswar")// update the code to pass cityname from dataprovider
-	WebElement cityName;
+	//@FindBy(id = cityName)
+//	@FindBy(xpath = "//input[@id='"+city+"']")
+//	WebElement cityName;
 	
 	@FindBy(xpath = "//div[@class='temperatureContainer']")
 	WebElement tempDetails;
@@ -59,6 +60,7 @@ public class NDTVWeatherPage extends BaseClass
 			{
 				citySearchBox.click();
 				citySearchBox.sendKeys(city);
+				WebElement cityName = driver.findElement(By.id(city));
 				if(cityName.isDisplayed())
 				{
 					cityName.click();

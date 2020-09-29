@@ -3,12 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.cw.qa.testcases.OpencurrentWeatherTests">
+      <class name="com.cw.qa.testcases.WeatherComparatorTest">
         <methods>
-          <include name="getAPITest"/>
+          <include name="wrapup"/>
+          <include name="compareWeather"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.cw.qa.testcases.OpencurrentWeatherTests -->
+      </class> <!-- com.cw.qa.testcases.WeatherComparatorTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

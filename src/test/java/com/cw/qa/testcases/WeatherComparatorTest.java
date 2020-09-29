@@ -21,12 +21,12 @@ public class WeatherComparatorTest extends BaseClass
 {
 	NDTVHomePage ndtvhomeobj;
 	NDTVWeatherPage ndtvweatherpage;
-	String serviceURL;
-	String apiURL;
+	String baseURL;
 	String reqURL1;
 	String reqURL2;
 	String apiKey;
 	String uri;
+	String city;
 	OpenWeatherCurrentPage openweatherobj;
 	double variance;
 	double tempdiff;
@@ -44,23 +44,15 @@ public class WeatherComparatorTest extends BaseClass
 		ndtvhomeobj = new NDTVHomePage();
 		ndtvweatherpage = ndtvhomeobj.navigatetoWeatherPage();
 		openweatherobj = new OpenWeatherCurrentPage();
-		serviceURL = properties.getProperty("serviceURL");
-		apiURL = properties.getProperty("apiURL");
+		baseURL = properties.getProperty("baseurl");
 		reqURL1 = properties.getProperty("reqURL1");
 		reqURL2 = properties.getProperty("reqURL2");
 		apiKey = properties.getProperty("apiKey");
-		uri = serviceURL+apiURL+reqURL1+reqURL2+apiKey;
-		
-	}
-	@DataProvider
-	public List<String> getCity() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException
-	{
-		List<String> testcity =  new ArrayList<String>();
-		testcity = TestUtil.ReadData(sheetName);
-		return testcity;
-	}
-	@Test(dataProvider = "getCity")
-	public void compareWeather(String city) throws ClientProtocolException, IOException{
+		city = properties.getProperty("city");
+		uri = baseURL+reqURL1+city+reqURL2+apiKey;
+		}
+	@Test
+	public void compareWeather() throws ClientProtocolException, IOException{
 		ndtvweatherpage.SearchCity(city);
 		double ndtvtemp = ndtvweatherpage.captureTemp();
 		double openweathertemp = (openweatherobj.getRestAPI(uri) - 273.15);

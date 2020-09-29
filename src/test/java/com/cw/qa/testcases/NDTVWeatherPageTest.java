@@ -31,20 +31,13 @@ public class NDTVWeatherPageTest extends BaseClass{
 		ndtvweatherpage = ndtvhomeobj.navigatetoWeatherPage();
 	}
 	
-	@DataProvider
-	public List<String> getCity() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException
-	{
-		List<String> testcity =  new ArrayList<String>();
-		testcity = TestUtil.ReadData(sheetName);
-		return testcity;
-	}
 
-	@Test(priority = 2, dataProvider = "getCity")
+	@Test(priority = 2)
 	public void validatecitywithTemperatutre(String city){
 		ndtvweatherpage.SearchCity(city);
 	}
 	
-	@Test(priority = 1, dataProvider = "getCity")
+	@Test(priority = 1)
 	public void validateWeatherDetails(String city)
 	{
 		ndtvweatherpage.SearchCity(city);
