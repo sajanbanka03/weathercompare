@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Weather Compare Tests"  >
+
+<test name="WeathercomparatorTests">
+
+
+<classes>
+
+<class name="com.cw.qa.testcases.NDTVHomePageTest"></class>
+<class name="com.cw.qa.testcases.NDTVWeatherPageTest"></class>
+<class name="com.cw.qa.testcases.OpencurrentWeatherTests"></class>
+<class name="com.cw.qa.testcases.WeatherComparatorTest"></class>
+</classes>
+
+
+</suite>
